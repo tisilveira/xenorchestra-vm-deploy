@@ -1,13 +1,23 @@
 #!/bin/bash
 
-#########################################################################
-# Title: XenOrchestraInstallerUpdater                                   #
-# Author: Roni Väyrynen                                                 #
-# Repository: https://github.com/ronivay/XenOrchestraInstallerUpdater   #
-#########################################################################
+############################################################
+# Title: Xen Orchestra VM Import                           #
+#                                                          #
+# Original author: Roni Väyrynen                           #
+# Original repository:                                     #
+# https://github.com/ronivay/XenOrchestraInstallerUpdater  #
+#                                                          #
+# Modified and maintained by: Ti Silveira                  #
+# Fork repository:                                         #
+# https://github.com/tisilveira/xenorchestra-vm-deploy     #
+#                                                          #
+# Modifications:                                           #
+# - Replaced curl with wget for TLS compatibility          #
+# - Self-hosted XVA image through GitHub Releases          #
+############################################################
 
 # image url is static and not configurable by user
-IMAGE_URL="https://xo-image.yawn.fi/downloads/image.xva.gz"
+IMAGE_URL="https://github.com/tisilveira/xenorchestra-vm-deploy/releases/download/v1.0.0/image.xva.gz"
 
 function OSCheck {
     set -e
@@ -18,7 +28,7 @@ function OSCheck {
     fi
 
     echo
-    echo "Welcome. This script will import a preconfigured Debian 11 VM image which has Xen Orchestra installed using https://github.com/ronivay/XenOrchestraInstallerUpdater"
+    echo "Welcome. This script will import a preconfigured Debian 11 VM image with Xen Orchestra. Repository: https://github.com/tisilveira/xenorchestra-vm-deploy"
     echo "You need at least 2vCPU/4GB/10GB disk free resources to import VM"
     echo
     echo "Please report any issues to this github project"
